@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poof Café Reservation Form</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(145deg, #e73827 0%, #f85032 100%);
+        }
+
+        .reservation-form {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #e73827;
+        }
+
+        .submit-btn {
+            background-color: #f85032;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e73827;
+        }
+
+        .form-group-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-group-row .form-group {
+            flex: 1;
+        }
+
+        .content-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content-section img {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reservation-form">
+        <div class="content-section">
+            <img src="https://i.imgur.com/cHidSVu.png" alt="Poof Café Logo"> <!-- You can replace this URL with an actual logo -->
+            <h1>Poof Café Reservation</h1>
+            <h2>Where you and your pets are always welcome!</h2>
+            <p>Enjoy our cozy ambiance with a delightful menu for both you and your furry friends. Make your reservation below and let us know how many pets you'll be bringing!</p>
+        </div>
+
+        <!-- Form with Formspree integration -->
+        <form action="https://formspree.io/f/myzyzyrw" method="POST">
+            <!-- Guest details -->
+            <div class="form-group">
+                <label for="guest-name">Your Name</label>
+                <input type="text" id="guest-name" name="guest-name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="guest-contact">Contact Number</label>
+                <input type="tel" id="guest-contact" name="guest-contact" placeholder="Enter your contact number" required>
+            </div>
+
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label for="guests-count">Number of Guests</label>
+                    <input type="number" id="guests-count" name="guests-count" placeholder="2" required>
+                </div>
+                <div class="form-group">
+                    <label for="reservation-time">Reservation Time</label>
+                    <input type="datetime-local" id="reservation-time" name="reservation-time" required>
+                </div>
+            </div>
+
+            <!-- Pet details -->
+            <div class="form-group">
+                <label for="pets-count">How many pets?</label>
+                <input type="number" id="pets-count" name="pets-count" placeholder="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pet-notes">Additional Notes (e.g. pet breed, allergies, etc.)</label>
+                <input type="text" id="pet-notes" name="pet-notes" placeholder="Any special requests">
+            </div>
+
+            <!-- Visible Email Input (Required for Formspree) -->
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Reservation</button>
+        </form>
+    </div>
+</body>
+</html>
